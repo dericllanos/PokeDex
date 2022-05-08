@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  Pokédex
+//  Pokedex
 //
 //  Created by Frederic Rey Llanos on 08/05/2022.
 //
