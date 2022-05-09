@@ -9,11 +9,18 @@ import UIKit
 
 class DetailsController: UIViewController {
     
+    @IBOutlet weak var MovesView: UIView?
+    @IBOutlet weak var DescView: UIView?
+    @IBOutlet weak var NameView: UIView?
+    @IBOutlet weak var TypeView: UIView?
+    @IBOutlet weak var ImageView: UIView?
+    
     @IBOutlet weak var Sprite: UIImageView?
     @IBOutlet weak var Name: UILabel?
     @IBOutlet weak var Type1: UILabel?
     @IBOutlet weak var Type2: UILabel?
     @IBOutlet weak var Description: UILabel?
+    @IBOutlet weak var Moves: UILabel?
     
     var dexTitle: String?
     var pokeImage: UIImage?
@@ -21,15 +28,39 @@ class DetailsController: UIViewController {
     var type1: String?
     var type2: String?
     var desc: String?
+    var pokeMoves: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = dexTitle ?? "Details"
-        self.Sprite?.image = pokeImage ?? UIImage(named: "missingno")
-        self.Name?.text = pokeName ?? "Pokemon-Name"
-        self.Type1?.text = type1 ?? "Type-1"
-        self.Type2?.text = type2 ?? "Type-2"
-        self.Description?.text = desc ?? "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        curvedBorders()
+        
+        self.title = dexTitle
+        self.Sprite?.image = pokeImage
+        self.Name?.text = pokeName
+        self.Type1?.text = type1
+        self.Type2?.text = type2
+        self.Description?.text = desc
+        self.Moves?.text = pokeMoves
+    }
+    
+    private func curvedBorders() {
+        self.ImageView?.layer.cornerRadius = 20.0
+        self.Sprite?.layer.cornerRadius = 20.0
+        
+        self.NameView?.layer.cornerRadius = 20.0
+        self.NameView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        self.TypeView?.layer.cornerRadius = 20.0
+        self.TypeView?.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        self.Type1?.layer.masksToBounds = true
+        self.Type1?.layer.cornerRadius = 10.0
+        self.Type1?.layer.maskedCorners = .layerMinXMaxYCorner
+        self.Type2?.layer.masksToBounds = true
+        self.Type2?.layer.cornerRadius = 10.0
+        self.Type2?.layer.maskedCorners = .layerMaxXMaxYCorner
+        
+        self.DescView?.layer.cornerRadius = 20.0
+        
+        self.MovesView?.layer.cornerRadius = 20.0
     }
 }
