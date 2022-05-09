@@ -24,6 +24,12 @@ class PokemonTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        Sprite?.image = UIImage(named: "missingno")
+        Name?.text = "MissingNo"
+        Type1?.text = "Flying"
+        Type1?.backgroundColor = UIColor.flying()
+        Type2?.text = "Normal"
+        Type2?.backgroundColor = UIColor.normal()
     }
     
 }

@@ -14,13 +14,26 @@ class PokedexController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupUI()
+    }
+    
+    @objc
+    private func showSearchBar() {
+        print("Hello World!")
+    }
+    
+    private func setupUI() {
         self.title = "Pokédex"
+        self.navigationController?.navigationBar.barTintColor = .red
         self.view.backgroundColor = .red
         
         let nib = UINib(nibName: "PokemonTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "PokemonTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
+        navigationItem.rightBarButtonItem?.tintColor = .black
     }
 }
 
@@ -42,8 +55,13 @@ extension PokedexController: UITableViewDelegate {
         }
         vc.self.pokeImage = UIImage(named: "missingno")
         vc.self.pokeName = "MissingNo"
-        vc.self.type1 = "???"
-        vc.self.type2 = "???"
+        
+        vc.self.type1 = "Flying"
+        vc.self.color1 = UIColor.flying()
+        
+        vc.self.type2 = "Normal"
+        vc.self.color2 = UIColor.normal()
+        
         vc.self.desc = "MissingNo.'s Red and Blue normal form is a dual-type Bird/Normal glitch Pokémon. It has a sprite that is a strange block of glitched pixels in a backward-L shape. Due to the larger number of characters that can be used to make it appear, it is the most common form. Normal form is exclusive to Pokémon Red and Blue."
         vc.self.pokeMoves = "tackle, sand-attack, leer, scratch"
         

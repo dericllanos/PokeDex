@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE2959C62829289C006F9E44 /* TypeColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2959C52829289C006F9E44 /* TypeColours.swift */; };
 		EE49B7EA2828676F008BEFDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49B7E92828676F008BEFDC /* AppDelegate.swift */; };
 		EE49B7EC2828676F008BEFDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49B7EB2828676F008BEFDC /* SceneDelegate.swift */; };
 		EE49B7EE2828676F008BEFDC /* PokedexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE49B7ED2828676F008BEFDC /* PokedexController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE2959C52829289C006F9E44 /* TypeColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColours.swift; sourceTree = "<group>"; };
 		EE49B7E62828676F008BEFDC /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE49B7E92828676F008BEFDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE49B7EB2828676F008BEFDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE2959C428292878006F9E44 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EE2959C52829289C006F9E44 /* TypeColours.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		EE49B7DD2828676F008BEFDC = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +97,7 @@
 		EE49B7FE2828680D008BEFDC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EE2959C428292878006F9E44 /* Extensions */,
 				EE49B802282868A4008BEFDC /* PokemonTableViewCell.swift */,
 				EE49B803282868A4008BEFDC /* PokemonTableViewCell.xib */,
 			);
@@ -191,6 +202,7 @@
 				EE49B7EE2828676F008BEFDC /* PokedexController.swift in Sources */,
 				EE49B804282868A4008BEFDC /* PokemonTableViewCell.swift in Sources */,
 				EE49B8072828738C008BEFDC /* DetailsController.swift in Sources */,
+				EE2959C62829289C006F9E44 /* TypeColours.swift in Sources */,
 				EE49B7EA2828676F008BEFDC /* AppDelegate.swift in Sources */,
 				EE49B7EC2828676F008BEFDC /* SceneDelegate.swift in Sources */,
 			);
