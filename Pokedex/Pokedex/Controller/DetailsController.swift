@@ -72,7 +72,7 @@ class DetailsController: UIViewController {
         self.Description?.text = ("\(ability1.capitalized) \(slash) \(ability2.capitalized)")
         self.Description?.font = UIFont.boldSystemFont(ofSize: 20)
         
-        self.Moves?.text = pokeMoves
+        self.Moves?.text = pokeMoves?.capitalized
     }
     
     private func curvedBorders() {
@@ -101,7 +101,7 @@ class DetailsController: UIViewController {
     
     func setValues(pokemon: BasicData, spritePath: String) {
         let url = pokemon.url
-        let popList = fetchPokeDetails(urlPokemonSend: url)
+        let popList = fetchDetails(url: url)
         
         self.pokeName = pokemon.name.capitalized
         

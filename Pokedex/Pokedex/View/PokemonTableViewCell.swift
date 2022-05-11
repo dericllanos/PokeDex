@@ -35,7 +35,7 @@ class PokemonTableViewCell: UITableViewCell {
         self.Name?.font = UIFont.systemFont(ofSize: 25)
         
         let url = pokemon.url
-        let popList = fetchPokeDetails(urlPokemonSend: url)
+        let popList = fetchDetails(url: url)
         guard var list = popList?.types.map({ $0.type.name }) else { return }
         if list.count <= 2 {
             list.append("placeholder")

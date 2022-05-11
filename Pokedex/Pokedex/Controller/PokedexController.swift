@@ -7,12 +7,13 @@
 
 import UIKit
 
-class PokedexController: UIViewController {
+class PokedexController: UIViewController, UISearchBarDelegate {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView?
+    @IBOutlet weak var pokemonSearch: UISearchBar?
     
     var pokemonArray: [BasicData] = []
-    var searchText = ""
+    var searchArray = [BasicData]()
     var nextPage = 30
     let networkManager = NetworkManager()
     
@@ -21,12 +22,32 @@ class PokedexController: UIViewController {
         
         self.setupUI()
         self.fetchPage()
+        searchArray = pokemonArray
+        pokemonSearch?.isHidden = false
     }
     
-    @objc
-    private func showSearchBar() {
-        print("Hello World!")
-    }
+    // MARK: - SearchBar
+    
+//    @objc
+//    private func showSearchBar() {
+//        self.pokemonSearch?.isHidden = !(self.pokemonSearch?.isHidden ?? false)
+//    }
+//
+//    func filter(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        searchArray = []
+//
+//        if (searchText == "") {
+//            searchArray = pokemonArray
+//        }
+//        else {
+//            for pokemon in pokemonArray {
+//                if pokemon.name.lowercased().contains(searchText.lowercased()) {
+//                    searchArray.append(pokemon)
+//                }
+//            }
+//        }
+//        self.tableView?.reloadData()
+//    }
     
     private func setupUI() {
         self.title = "Pokédex"
@@ -34,12 +55,15 @@ class PokedexController: UIViewController {
         self.view.backgroundColor = .systemOrange
         
         let nib = UINib(nibName: "PokemonTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "PokemonTableViewCell")
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView?.register(nib, forCellReuseIdentifier: "PokemonTableViewCell")
+        tableView?.delegate = self
+        tableView?.dataSource = self
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
-        navigationItem.rightBarButtonItem?.tintColor = .black
+//        let leftNavItem = UIBarButtonItem(customView: pokemonSearch ?? UISearchBar())
+//        self.navigationItem.leftBarButtonItem = leftNavItem
+        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
+//        navigationItem.rightBarButtonItem?.tintColor = .black
     }
     
     func fetchPage() {
@@ -49,7 +73,7 @@ class PokedexController: UIViewController {
                 self.pokemonArray.append(contentsOf: page.results)
                 self.nextPage += 30
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    self.tableView?.reloadData()
                 }
             case .failure(let err):
                 print("Error: \(err.localizedDescription)")

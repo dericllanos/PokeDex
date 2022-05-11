@@ -179,8 +179,8 @@ func createBasicData(dict: [String: Any]) -> BasicData? {
     return BasicData(name: name, url: url)
 }
 
-func fetchPokeDetails(urlPokemonSend: String) -> PokemonDetails? {
-    guard let urlToSend = URL(string: "\(urlPokemonSend)") else { return nil }
+func fetchDetails(url: String) -> PokemonDetails? {
+    guard let urlToSend = URL(string: url) else { return nil }
     do {
         let data = try Data(contentsOf: urlToSend)
         let jsonObj = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)

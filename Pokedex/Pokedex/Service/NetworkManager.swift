@@ -103,8 +103,8 @@ extension NetworkManager {
         }.resume()
     }
     
-    func fetchDetails(urlPokemonSend: String) -> PokemonDetails? {
-        let urlToSend = URL(string: "\(urlPokemonSend)")!
+    func fetchDetails(url: String) -> PokemonDetails? {
+        guard let urlToSend = URL(string: url) else { return nil }
         do {
             let data = try Data(contentsOf: urlToSend)
             let jsonObj = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
