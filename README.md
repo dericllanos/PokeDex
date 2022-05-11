@@ -5,7 +5,9 @@ Generation I - first class project
     * Will make improvements 
         1. Search Bar - pending
         2. Scroll View for Details - pending
-            A. I was thinking of using this to combat screen resizing
+            A. Working for portrait - need to fix landscape
+        3. Center cell items
     * Improvements made
         1. Image Caching
-        2. Shiny Toggle
+        2. Pagination
+        3. Shiny Toggle
