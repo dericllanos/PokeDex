@@ -58,13 +58,13 @@ class PokemonTableViewCell: UITableViewCell {
         }
         typeColour()
 
-//        if let imageData = ImageCache.sharedCache.getImageData(key: pokemon.sprite?.url ?? "") {
-//            print("Point: ImageCache Data")
-//            self.Sprite?.image = UIImage(data: imageData)
-//            return
-//        }
+        if let imageData = ImageCache.sharedCache.getImageData(key: popList?.sprites.frontDefault ?? "") {
+            print("Point: ImageCache Data")
+            self.Sprite?.image = UIImage(data: imageData)
+            return
+        }
         
-//        print("Point: Fetching Image From Network")
+        print("Point: Fetching Image From Network")
         NetworkManager.shared.fetchSprites(spritePath: spritePath, completion: { result in
             switch result {
             case .success(let imageData):
