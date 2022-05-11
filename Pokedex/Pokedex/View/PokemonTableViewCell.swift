@@ -28,12 +28,6 @@ class PokemonTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        self.Sprite?.image = nil
-    }
-    
     func configure(index: Int, pokemon: BasicData, spritePath: String) {
         self.reset()
         
