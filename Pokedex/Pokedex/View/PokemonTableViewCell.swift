@@ -59,14 +59,14 @@ class PokemonTableViewCell: UITableViewCell {
         }
         
         print("Point: Fetching Image From Network")
-        NetworkManager.shared.fetchSprites(spritePath: spritePath, completion: { result in
+        NetworkManager.shared.fetchSprites(spritePath: spritePath, completion: { [weak self] result in
             switch result {
             case .success(let imageData):
 
                 ImageCache.sharedCache.setImageData(key: popList?.sprites.frontDefault ?? "", data: imageData)
 
                 DispatchQueue.main.async {
-                    self.Sprite?.image = UIImage(data: imageData)
+                    self?.Sprite?.image = UIImage(data: imageData)
                 }
             case .failure(let err):
                 print(err)

@@ -13,7 +13,7 @@ class PokedexController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var pokemonSearch: UISearchBar?
     
     var pokemonArray: [BasicData] = []
-    var searchArray = [BasicData]()
+    //var searchArray = [BasicData]()
     var nextPage = 30
     let networkManager = NetworkManager()
     
@@ -22,7 +22,7 @@ class PokedexController: UIViewController, UISearchBarDelegate {
         
         self.setupUI()
         self.fetchPage()
-        searchArray = pokemonArray
+        //searchArray = pokemonArray
         pokemonSearch?.isHidden = false
     }
     
@@ -67,17 +67,17 @@ class PokedexController: UIViewController, UISearchBarDelegate {
     }
     
     func fetchPage() {
-        self.networkManager.fetchData(page: self.nextPage) { result in
+        self.networkManager.fetchData(page: self.nextPage) { [weak self] result in
             switch result {
             case .success(let page):
-                self.pokemonArray.append(contentsOf: page.results)
-                self.nextPage += 30
+                self?.pokemonArray.append(contentsOf: page.results)
+                self?.nextPage += 30
                 DispatchQueue.main.async {
-                    self.tableView?.reloadData()
+                    self?.tableView?.reloadData()
                 }
             case .failure(let err):
                 print("Error: \(err.localizedDescription)")
-                self.presentErrorAlert(title: "NetworkError", message: err.localizedDescription)
+                self?.presentErrorAlert(title: "NetworkError", message: err.localizedDescription)
             }
         }
     }

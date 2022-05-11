@@ -9,6 +9,7 @@ import UIKit
 
 class DetailsController: UIViewController {
     
+    @IBOutlet weak var ScrollView: UIScrollView?
     @IBOutlet weak var MovesView: UIView?
     @IBOutlet weak var NameView: UIView?
     @IBOutlet weak var TypeView: UIView?
@@ -32,13 +33,11 @@ class DetailsController: UIViewController {
     var ability1: String = ""
     var ability2: String = ""
     var pokeMoves: String?
-    var counter: Int = 0
     
     let networkManager = NetworkManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = .systemOrange
         self.Shiny?.isHidden = true
         self.Sprite?.isHidden = false
@@ -53,7 +52,7 @@ class DetailsController: UIViewController {
     
     private func itemValues() {
         self.title = dexTitle
-        self.Sprite?.image = pokeImage
+
         self.Name?.text = pokeName
         self.Name?.font = UIFont.boldSystemFont(ofSize: 25)
         
@@ -121,34 +120,32 @@ class DetailsController: UIViewController {
         
         guard let moves = popList?.moves.map({$0.move.name}) else { return }
         for _ in moves {
-            if counter <= 10 {
-                pokeMoves = "Moves: \n \(moves.joined(separator: ", "))"
-            }
-            self.counter += 1
+            pokeMoves = "Moves: \n \(moves.joined(separator: ", "))"
         }
         
-        NetworkManager.shared.fetchSprites(spritePath: spritePath, completion: { result in
+        NetworkManager.shared.fetchSprites(spritePath: spritePath, completion: { [weak self] result in
             switch result {
             case .success(let imageData):
 
                 ImageCache.sharedCache.setImageData(key: popList?.sprites.frontDefault ?? "", data: imageData)
 
                 DispatchQueue.main.async {
-                    self.Sprite?.image = UIImage(data: imageData)
+                    self?.Sprite?.image = UIImage(data: imageData)
                 }
             case .failure(let err):
                 print(err)
             }
         })
         
-        NetworkManager.shared.fetchShiny(spritePath: spritePath, completion: { result in
+        // Make Lazy
+        NetworkManager.shared.fetchShiny(spritePath: spritePath, completion: { [weak self] result in
             switch result {
             case .success(let imageData):
 
                 ImageCache.sharedCache.setImageData(key: popList?.sprites.frontShiny ?? "", data: imageData)
 
                 DispatchQueue.main.async {
-                    self.Shiny?.image = UIImage(data: imageData)
+                    self?.Shiny?.image = UIImage(data: imageData)
                 }
             case .failure(let err):
                 print(err)
@@ -158,7 +155,7 @@ class DetailsController: UIViewController {
     
     func typeColour() {
         if type2 == "N/A" {
-            self.Type2?.backgroundColor = UIColor.clear
+            self.Type2?.backgroundColor = UIColor.lightGray
             self.Type2?.isEnabled = false
         }
         // Type 1

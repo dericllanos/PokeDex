@@ -13,7 +13,7 @@ extension UIColor {
     }
     
     // MARK: - Type Colours
-    //  Bug, Dragon, Electric, Fighting, Fire, Flying, Ghost, Grass, Ground, Ice, Normal, Poison, Psychic, Rock, and Water (Gen 1) + Fairy
+    //  Bug, Dragon, Electric, Fighting, Fire, Flying, Ghost, Grass, Ground, Ice, Normal, Poison, Psychic, Rock, and Water (Gen 1) + Fairy, Steel
     
     static func fairy() -> UIColor {
         return UIColor.rgb(red: 240, green: 182, blue: 188)
