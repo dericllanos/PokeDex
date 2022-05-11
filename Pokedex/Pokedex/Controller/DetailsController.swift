@@ -10,10 +10,11 @@ import UIKit
 class DetailsController: UIViewController {
     
     @IBOutlet weak var MovesView: UIView?
-    @IBOutlet weak var DescView: UIView?
     @IBOutlet weak var NameView: UIView?
     @IBOutlet weak var TypeView: UIView?
     @IBOutlet weak var ImageView: UIView?
+    @IBOutlet weak var Shiny: UIImageView?
+    @IBOutlet weak var ImageSwitch: UISwitch?
     
     @IBOutlet weak var Sprite: UIImageView?
     @IBOutlet weak var Name: UILabel?
@@ -39,9 +40,15 @@ class DetailsController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = .systemOrange
+        self.Shiny?.isHidden = true
+        self.Sprite?.isHidden = false
         
         self.curvedBorders()
         self.itemValues()
+    }
+    
+    @IBAction func spriteSwitch(_ sender: Any) {
+        self.Shiny?.isHidden = !(self.Shiny?.isHidden ?? false)
     }
     
     private func itemValues() {
@@ -71,6 +78,7 @@ class DetailsController: UIViewController {
     private func curvedBorders() {
         self.ImageView?.layer.cornerRadius = 20.0
         self.Sprite?.layer.cornerRadius = 20.0
+        self.Shiny?.layer.cornerRadius = 20.0
         
         self.NameView?.layer.cornerRadius = 20.0
         self.NameView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -86,8 +94,6 @@ class DetailsController: UIViewController {
         self.Type2?.layer.borderColor = UIColor.white.cgColor
         self.Type2?.layer.cornerRadius = 20.0
         self.Type2?.layer.maskedCorners = .layerMaxXMaxYCorner
-        
-        self.DescView?.layer.cornerRadius = 20.0
         
         self.MovesView?.layer.cornerRadius = 20.0
         self.MovesView?.layer.borderWidth = 5.0
@@ -129,6 +135,20 @@ class DetailsController: UIViewController {
 
                 DispatchQueue.main.async {
                     self.Sprite?.image = UIImage(data: imageData)
+                }
+            case .failure(let err):
+                print(err)
+            }
+        })
+        
+        NetworkManager.shared.fetchShiny(spritePath: spritePath, completion: { result in
+            switch result {
+            case .success(let imageData):
+
+                ImageCache.sharedCache.setImageData(key: popList?.sprites.frontShiny ?? "", data: imageData)
+
+                DispatchQueue.main.async {
+                    self.Shiny?.image = UIImage(data: imageData)
                 }
             case .failure(let err):
                 print(err)

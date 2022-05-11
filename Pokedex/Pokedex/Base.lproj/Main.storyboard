@@ -48,11 +48,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRq-Gh-lOQ" userLabel="imageView">
-                                <rect key="frame" x="20" y="74" width="374" height="341"/>
+                                <rect key="frame" x="20" y="74" width="374" height="342"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7lr-iw-Bvq">
-                                        <rect key="frame" x="5" y="5" width="364" height="331"/>
+                                        <rect key="frame" x="5" y="5" width="364" height="332"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HRz-xL-Wl8">
+                                        <rect key="frame" x="5" y="5" width="364" height="332"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokemon-Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0wh-Ge-Brw">
                                         <rect key="frame" x="220" y="2" width="138" height="55"/>
@@ -63,14 +67,24 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b2t-pP-8bk">
+                                        <rect key="frame" x="310" y="296" width="51" height="31"/>
+                                        <color key="onTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="spriteSwitch:" destination="oyG-Cy-KIX" eventType="valueChanged" id="4NV-Rv-saa"/>
+                                        </connections>
+                                    </switch>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="7lr-iw-Bvq" secondAttribute="bottom" constant="5" id="DmY-Zl-aDw"/>
                                     <constraint firstItem="7lr-iw-Bvq" firstAttribute="top" secondItem="dRq-Gh-lOQ" secondAttribute="top" constant="5" id="UgO-iA-HwE"/>
+                                    <constraint firstAttribute="trailing" secondItem="b2t-pP-8bk" secondAttribute="trailing" constant="15" id="dav-BK-bUm"/>
                                     <constraint firstItem="0wh-Ge-Brw" firstAttribute="centerX" secondItem="7lr-iw-Bvq" secondAttribute="centerX" constant="102" id="gdC-hb-neb"/>
                                     <constraint firstAttribute="trailing" secondItem="7lr-iw-Bvq" secondAttribute="trailing" constant="5" id="lA9-fz-clB"/>
                                     <constraint firstItem="0wh-Ge-Brw" firstAttribute="top" secondItem="dRq-Gh-lOQ" secondAttribute="top" constant="2" id="mq0-SO-mDE"/>
+                                    <constraint firstAttribute="bottom" secondItem="b2t-pP-8bk" secondAttribute="bottom" constant="15" id="owu-GF-HXo"/>
                                     <constraint firstItem="7lr-iw-Bvq" firstAttribute="leading" secondItem="dRq-Gh-lOQ" secondAttribute="leading" constant="5" id="pPB-bT-02h"/>
                                     <constraint firstAttribute="trailing" secondItem="0wh-Ge-Brw" secondAttribute="trailing" constant="16" id="yhX-S5-jCv"/>
                                 </constraints>
@@ -157,7 +171,6 @@
                             <constraint firstItem="TVX-Kt-b0f" firstAttribute="trailing" secondItem="dRq-Gh-lOQ" secondAttribute="trailing" constant="20" id="Erh-yA-5nW"/>
                             <constraint firstItem="TVX-Kt-b0f" firstAttribute="trailing" secondItem="m9f-8r-dMR" secondAttribute="trailing" constant="20" id="IcY-pT-6by"/>
                             <constraint firstItem="m9f-8r-dMR" firstAttribute="top" secondItem="P21-wE-Lbt" secondAttribute="bottom" constant="-1" id="KlS-vm-ZWp"/>
-                            <constraint firstItem="P21-wE-Lbt" firstAttribute="top" secondItem="dRq-Gh-lOQ" secondAttribute="bottom" constant="21" id="NuH-FV-TEg"/>
                             <constraint firstAttribute="bottom" secondItem="m9f-8r-dMR" secondAttribute="bottom" constant="322" id="TFs-oi-nvG"/>
                             <constraint firstItem="P21-wE-Lbt" firstAttribute="leading" secondItem="TVX-Kt-b0f" secondAttribute="leading" constant="20" id="dHC-Fb-Nh3"/>
                             <constraint firstItem="TVX-Kt-b0f" firstAttribute="trailing" secondItem="P21-wE-Lbt" secondAttribute="trailing" constant="20" id="eUs-Jo-gxg"/>
@@ -169,15 +182,18 @@
                             <constraint firstItem="P21-wE-Lbt" firstAttribute="top" secondItem="Bzx-x5-7VO" secondAttribute="top" constant="436" id="r8R-51-yib"/>
                             <constraint firstItem="eI7-5L-9IL" firstAttribute="top" secondItem="m9f-8r-dMR" secondAttribute="bottom" constant="20" id="vUY-DT-iF1"/>
                             <constraint firstItem="dRq-Gh-lOQ" firstAttribute="leading" secondItem="TVX-Kt-b0f" secondAttribute="leading" constant="20" id="y2Z-6s-zZr"/>
+                            <constraint firstItem="P21-wE-Lbt" firstAttribute="top" secondItem="dRq-Gh-lOQ" secondAttribute="bottom" constant="20" id="ybC-sc-Q97"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="Description" destination="G3e-hs-cNl" id="Y26-cf-dkB"/>
+                        <outlet property="ImageSwitch" destination="b2t-pP-8bk" id="dbm-4F-Hso"/>
                         <outlet property="ImageView" destination="dRq-Gh-lOQ" id="JRC-xa-fsb"/>
                         <outlet property="Moves" destination="AfN-5L-o62" id="gSQ-IO-mnG"/>
                         <outlet property="MovesView" destination="eI7-5L-9IL" id="prL-oH-DL9"/>
                         <outlet property="Name" destination="0wh-Ge-Brw" id="Znp-aO-Nhi"/>
                         <outlet property="NameView" destination="P21-wE-Lbt" id="hnM-O7-Qwp"/>
+                        <outlet property="Shiny" destination="HRz-xL-Wl8" id="8Gy-Fv-6lR"/>
                         <outlet property="Sprite" destination="7lr-iw-Bvq" id="BFX-w5-ByP"/>
                         <outlet property="Type1" destination="E5r-Ui-dnN" id="p9J-5J-x97"/>
                         <outlet property="Type2" destination="yrT-1j-I59" id="oNQ-Hw-p03"/>

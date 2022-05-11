@@ -46,6 +46,34 @@ extension NetworkManager {
             }
         }.resume()
     }
+    
+    func fetchShiny(spritePath: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard let url = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/\(spritePath).png") else {
+            completion(.failure(NetworkError.badURL))
+            return
+        }
+
+        URLSession.shared.dataTask(with: url) { data, response, error in
+
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            if let httpResponse = response as? HTTPURLResponse, !(200..<300).contains(httpResponse.statusCode) {
+                completion(.failure(NetworkError.badServerResponse(httpResponse.statusCode)))
+                return
+            }
+
+            guard let data = data else {
+                completion(.failure(NetworkError.badData))
+                return
+            }
+
+            completion(.success(data))
+
+        }.resume()
+    }
 
     func fetchSprites(spritePath: String, completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(spritePath).png") else {
