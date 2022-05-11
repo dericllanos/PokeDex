@@ -9,6 +9,7 @@ import UIKit
 
 class PokemonTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var Pokeball: UIImageView!
     @IBOutlet weak var Sprite: UIImageView?
     @IBOutlet weak var ID: UILabel?
     @IBOutlet weak var Name: UILabel?
@@ -81,6 +82,7 @@ class PokemonTableViewCell: UITableViewCell {
     
     private func reset() {
         self.Sprite?.image = UIImage(named: "missingno")
+        self.Pokeball?.image = UIImage(named: "pokeball")
         self.Sprite?.layer.borderWidth = 5.0
         self.Sprite?.layer.backgroundColor = UIColor.white.cgColor
         self.Sprite?.layer.borderColor = UIColor.lightGray.cgColor

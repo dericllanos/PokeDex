@@ -48,7 +48,7 @@ class DetailsController: UIViewController {
         self.title = dexTitle
         self.Sprite?.image = pokeImage
         self.Name?.text = pokeName
-        self.Name?.font = UIFont.boldSystemFont(ofSize: 20)
+        self.Name?.font = UIFont.boldSystemFont(ofSize: 25)
         
         self.Type1?.text = type1?.capitalized
         self.Type1?.font = UIFont.systemFont(ofSize: 20)
@@ -63,6 +63,7 @@ class DetailsController: UIViewController {
             slash = ""
         }
         self.Description?.text = ("\(ability1.capitalized) \(slash) \(ability2.capitalized)")
+        self.Description?.font = UIFont.boldSystemFont(ofSize: 20)
         
         self.Moves?.text = pokeMoves
     }
@@ -89,6 +90,7 @@ class DetailsController: UIViewController {
         self.DescView?.layer.cornerRadius = 20.0
         
         self.MovesView?.layer.cornerRadius = 20.0
+        self.MovesView?.layer.borderWidth = 5.0
     }
     
     func setValues(pokemon: BasicData, spritePath: String) {
@@ -143,70 +145,87 @@ class DetailsController: UIViewController {
         if type1 == "fire" {
             self.Type1?.backgroundColor = UIColor.fire()
             self.ImageView?.layer.backgroundColor = UIColor.fire().cgColor
+            self.MovesView?.layer.borderColor = UIColor.fire().cgColor
         }
         else if type1 == "water" {
             self.Type1?.backgroundColor = UIColor.water()
             self.ImageView?.layer.backgroundColor = UIColor.water().cgColor
+            self.MovesView?.layer.borderColor = UIColor.water().cgColor
         }
         else if type1 == "grass" {
             self.Type1?.backgroundColor = UIColor.grass()
             self.ImageView?.layer.backgroundColor = UIColor.grass().cgColor
+            self.MovesView?.layer.borderColor = UIColor.grass().cgColor
         }
         else if type1 == "fairy" {
             self.Type1?.backgroundColor = UIColor.fairy()
-            self.Sprite?.layer.borderColor = UIColor.fairy().cgColor
+            self.ImageView?.layer.backgroundColor = UIColor.fairy().cgColor
+            self.MovesView?.layer.borderColor = UIColor.fairy().cgColor
         }
         else if type1 == "steel" {
             self.Type1?.backgroundColor = UIColor.steel()
-            self.Sprite?.layer.borderColor = UIColor.steel().cgColor
+            self.ImageView?.layer.backgroundColor = UIColor.steel().cgColor
+            self.MovesView?.layer.borderColor = UIColor.steel().cgColor
         }
         else if type1 == "psychic" {
             self.Type1?.backgroundColor = UIColor.psychic()
-            self.Sprite?.layer.borderColor = UIColor.psychic().cgColor
+            self.ImageView?.layer.backgroundColor = UIColor.psychic().cgColor
+            self.MovesView?.layer.borderColor = UIColor.psychic().cgColor
         }
         else if type1 == "ghost" {
             self.Type1?.backgroundColor = UIColor.ghost()
-            self.Sprite?.layer.borderColor = UIColor.ghost().cgColor
+            self.ImageView?.layer.backgroundColor = UIColor.ghost().cgColor
+            self.MovesView?.layer.borderColor = UIColor.ghost().cgColor
         }
         else if type1 == "poison" {
             self.Type1?.backgroundColor = UIColor.poison()
-            self.Sprite?.layer.borderColor = UIColor.poison().cgColor
+            self.ImageView?.layer.backgroundColor = UIColor.poison().cgColor
+            self.MovesView?.layer.borderColor = UIColor.poison().cgColor
         }
         else if type1 == "bug" {
             self.Type1?.backgroundColor = UIColor.bug()
-            self.Sprite?.layer.borderColor = UIColor.bug().cgColor
+            self.ImageView?.layer.backgroundColor = UIColor.bug().cgColor
+            self.MovesView?.layer.borderColor = UIColor.bug().cgColor
         }
         else if type1 == "normal" {
             self.Type1?.backgroundColor = UIColor.normal()
-            self.Sprite?.layer.borderColor = UIColor.normal().cgColor
+            self.ImageView?.layer.backgroundColor = UIColor.normal().cgColor
+            self.MovesView?.layer.borderColor = UIColor.normal().cgColor
         }
         else if type1 == "flying" {
             self.Type1?.backgroundColor = UIColor.flying()
-            self.Sprite?.layer.borderColor = UIColor.flying().cgColor
+            self.ImageView?.layer.backgroundColor = UIColor.flying().cgColor
+            self.MovesView?.layer.borderColor = UIColor.flying().cgColor
         }
         else if type1 == "fighting" {
             self.Type1?.backgroundColor = UIColor.fighting()
-            self.Sprite?.layer.borderColor = UIColor.fighting().cgColor
+            self.ImageView?.layer.backgroundColor = UIColor.fighting().cgColor
+            self.MovesView?.layer.borderColor = UIColor.fighting().cgColor
         }
         else if type1 == "rock" {
             self.Type1?.backgroundColor = UIColor.rock()
-            self.Sprite?.layer.borderColor = UIColor.rock().cgColor
+            self.ImageView?.layer.backgroundColor = UIColor.rock().cgColor
+            self.MovesView?.layer.borderColor = UIColor.rock().cgColor
         }
         else if type1 == "ground" {
             self.Type1?.backgroundColor = UIColor.ground()
-            self.Sprite?.layer.borderColor = UIColor.ground().cgColor
+            self.ImageView?.layer.backgroundColor = UIColor.ground().cgColor
+            self.MovesView?.layer.borderColor = UIColor.ground().cgColor
         }
         else if type1 == "dragon" {
             self.Type1?.backgroundColor = UIColor.dragon()
-            self.Sprite?.layer.borderColor = UIColor.dragon().cgColor
+            self.ImageView?.layer.backgroundColor = UIColor.dragon().cgColor
+            self.MovesView?.layer.borderColor = UIColor.dragon().cgColor
         }
         else if type1 == "electric" {
             self.Type1?.backgroundColor = UIColor.electric()
-            self.Sprite?.layer.borderColor = UIColor.electric().cgColor
+            self.ImageView?.layer.backgroundColor = UIColor.electric().cgColor
+            self.MovesView?.layer.borderColor = UIColor.electric().cgColor
         }
         else if type1 == "ice" {
             self.Type1?.backgroundColor = UIColor.ice()
             self.ImageView?.layer.backgroundColor = UIColor.ice().cgColor
+            self.MovesView?.layer.borderColor = UIColor.ice().cgColor
         }
         // Type 2
         if type2 == "fire" {

@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jI6-7q-3gl">
-                        <rect key="frame" x="154" y="22" width="164" height="32"/>
+                        <rect key="frame" x="154" y="22" width="67" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -53,6 +53,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4dl-xZ-pc1">
+                        <rect key="frame" x="222" y="26" width="23" height="23"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="AZe-dP-Wrc"/>
                 <constraints>
@@ -65,6 +69,7 @@
             <connections>
                 <outlet property="ID" destination="jI6-7q-3gl" id="6zs-Y9-fwf"/>
                 <outlet property="Name" destination="rtQ-hZ-yL3" id="WdE-Yk-9BM"/>
+                <outlet property="Pokeball" destination="4dl-xZ-pc1" id="Rh4-Wi-Nub"/>
                 <outlet property="Sprite" destination="vDZ-cl-aXF" id="k8o-Qk-n8p"/>
                 <outlet property="Type1" destination="f7H-Xs-Pvo" id="uk4-Un-ARa"/>
                 <outlet property="Type2" destination="v3d-Ve-PBQ" id="cjK-JI-GNa"/>
