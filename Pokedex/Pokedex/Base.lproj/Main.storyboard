@@ -43,7 +43,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
             </objects>
-            <point key="canvasLocation" x="939.13043478260875" y="71.651785714285708"/>
+            <point key="canvasLocation" x="607" y="72"/>
         </scene>
         <!--Details Controller-->
         <scene sceneID="dOX-n1-Eff">
@@ -60,15 +60,14 @@
                                         <rect key="frame" x="20" y="20" width="374" height="257"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7lr-iw-Bvq">
-                                                <rect key="frame" x="5" y="5" width="364" height="244"/>
+                                                <rect key="frame" x="5" y="5" width="364" height="247"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HRz-xL-Wl8">
-                                                <rect key="frame" x="4" y="5" width="365" height="244"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HRz-xL-Wl8">
+                                                <rect key="frame" x="5" y="5" width="364" height="247"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokemon-Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0wh-Ge-Brw">
-                                                <rect key="frame" x="220" y="2" width="138" height="55"/>
+                                                <rect key="frame" x="234.5" y="2" width="123.5" height="55"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="xJT-U5-4AZ"/>
                                                 </constraints>
@@ -87,12 +86,17 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="HRz-xL-Wl8" firstAttribute="top" secondItem="dRq-Gh-lOQ" secondAttribute="top" constant="5" id="1g6-5Y-mWN"/>
                                             <constraint firstAttribute="trailing" secondItem="b2t-pP-8bk" secondAttribute="trailing" constant="15" id="2HA-Re-32d"/>
-                                            <constraint firstAttribute="bottom" secondItem="7lr-iw-Bvq" secondAttribute="bottom" constant="8" id="DmY-Zl-aDw"/>
+                                            <constraint firstItem="0wh-Ge-Brw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dRq-Gh-lOQ" secondAttribute="leading" constant="20" symbolic="YES" id="4Ut-8Y-dz5"/>
+                                            <constraint firstAttribute="bottom" secondItem="HRz-xL-Wl8" secondAttribute="bottom" constant="5" id="ENd-5d-WeS"/>
+                                            <constraint firstItem="HRz-xL-Wl8" firstAttribute="top" secondItem="7lr-iw-Bvq" secondAttribute="top" id="GgP-0t-upW"/>
+                                            <constraint firstItem="HRz-xL-Wl8" firstAttribute="leading" secondItem="dRq-Gh-lOQ" secondAttribute="leading" constant="5" id="I8c-3N-nUj"/>
                                             <constraint firstAttribute="bottom" secondItem="b2t-pP-8bk" secondAttribute="bottom" constant="20" id="IM3-m5-loA"/>
                                             <constraint firstItem="7lr-iw-Bvq" firstAttribute="top" secondItem="dRq-Gh-lOQ" secondAttribute="top" constant="5" id="UgO-iA-HwE"/>
+                                            <constraint firstAttribute="bottom" secondItem="7lr-iw-Bvq" secondAttribute="bottom" constant="5" id="bwD-xO-9tY"/>
                                             <constraint firstAttribute="trailing" secondItem="b2t-pP-8bk" secondAttribute="trailing" constant="15" id="dav-BK-bUm"/>
-                                            <constraint firstItem="0wh-Ge-Brw" firstAttribute="centerX" secondItem="7lr-iw-Bvq" secondAttribute="centerX" constant="102" id="gdC-hb-neb"/>
+                                            <constraint firstAttribute="trailing" secondItem="HRz-xL-Wl8" secondAttribute="trailing" constant="5" id="kJu-vz-ZkR"/>
                                             <constraint firstAttribute="trailing" secondItem="7lr-iw-Bvq" secondAttribute="trailing" constant="5" id="lA9-fz-clB"/>
                                             <constraint firstItem="0wh-Ge-Brw" firstAttribute="top" secondItem="dRq-Gh-lOQ" secondAttribute="top" constant="2" id="mq0-SO-mDE"/>
                                             <constraint firstItem="7lr-iw-Bvq" firstAttribute="leading" secondItem="dRq-Gh-lOQ" secondAttribute="leading" constant="5" id="pPB-bT-02h"/>
@@ -230,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E1s-EG-c7i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1715.9420289855075" y="71.651785714285708"/>
+            <point key="canvasLocation" x="1384" y="72"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kbC-QP-qc4">

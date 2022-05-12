@@ -23,7 +23,11 @@ class PokedexController: UIViewController, UISearchBarDelegate {
         self.setupUI()
         self.fetchPage()
         //searchArray = pokemonArray
-        pokemonSearch?.isHidden = false
+        //pokemonSearch?.isHidden = false
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
     }
     
     // MARK: - SearchBar
@@ -117,7 +121,7 @@ extension PokedexController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonTableViewCell", for: indexPath) as? PokemonTableViewCell else { return UITableViewCell() }
-
+        
         cell.Sprite?.layer.cornerRadius = 20.0
         cell.Type1?.layer.masksToBounds = true
         cell.Type1?.layer.cornerRadius = 10.0
